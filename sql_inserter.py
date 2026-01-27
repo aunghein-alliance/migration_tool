@@ -31,7 +31,7 @@ class SQLInserter:
             #print(records[0])
             cursor.executemany(sql, records)
 
-            #print(f"Inserted rows {start}..{end - 1}")
+            print(f"Inserted rows {start}..{end - 1}")
             start = end
 
         self.conn.commit()

@@ -1,15 +1,16 @@
-# Python
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
+
+# Environments
 .venv/
 venv/
 ENV/
 
-# IDEs
+# IDE files
 .idea/
 .vscode/
 
-# Local data
-*.csv
+# Local logs or data
 *.log

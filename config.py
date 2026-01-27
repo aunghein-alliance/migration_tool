@@ -17,8 +17,8 @@ COMMON_DELIMITERS = [",", "\t", ";", "|"]
 # Table / CSV configurations
 TABLE_CONFIG = [
     {
-        "csv_path": r"C:\Users\IT\Downloads\MIS Savings June 2025.csv",
-        "table_name": "MIS_SVACC",
+        "csv_path": r"C:\Users\IT\Downloads\LNACC\MIS Report 31.10.2025.csv",
+        "table_name": "MIS_LNACC",
         "columns": [
             "MIS_DAT", "GRP_NM", "ACC", "CO_ID", "CO_NM",
             "PRD_COD", "PRD_NM", "PRD_CAT",
