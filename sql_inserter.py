@@ -1,3 +1,5 @@
+import pandas as pd
+
 class SQLInserter:
     """Handles batch inserts."""
 
@@ -18,20 +20,12 @@ class SQLInserter:
             end = min(start + batch_size, total)
             chunk = df.iloc[start:end]
 
-            # -----------------------------------------
-            # FIX: Modern, safe string conversion
-            # -----------------------------------------
-            safe_chunk = (
-                chunk
-                .where(chunk.notna(), "")        # Replace NaN with ""
-                .astype(str)                     # Convert ALL values to text
-            )
+            # ✅ Preserve real Python types
+            records = chunk.where(pd.notna(chunk), None).values.tolist()
 
-            records = safe_chunk.values.tolist()
-            #print(records[0])
             cursor.executemany(sql, records)
-
             print(f"Inserted rows {start}..{end - 1}")
             start = end
+
 
         self.conn.commit()

@@ -17,8 +17,8 @@ COMMON_DELIMITERS = [",", "\t", ";", "|"]
 # Table / CSV configurations
 TABLE_CONFIG = [
     {
-        "csv_path": r"C:\Users\IT\Downloads\LNACC\MIS Report 31.10.2025.csv",
-        "table_name": "MIS_LNACC",
+        "csv_path": r"C:\Users\IT\Downloads\MIS_SV_DEC_csv.csv",
+        "table_name": "MIS_SVACC",
         "columns": [
             "MIS_DAT", "GRP_NM", "ACC", "CO_ID", "CO_NM",
             "PRD_COD", "PRD_NM", "PRD_CAT",
@@ -50,6 +50,5 @@ TABLE_CONFIG = [
         "dec_10_2": ["IR", "POVT_SCORE"],
         "text_cols": ["ACC"]
     }
-
     # Add more table/csv configs here
 ]

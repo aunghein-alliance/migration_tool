@@ -20,13 +20,13 @@ class DataCleaner:
         """Normalize MIS_DAT, OPN_DAT, MAT_DAT to YYYY-MM-DD and fill blanks if required."""
         if "MIS_DAT" in df.columns:
             s = df["MIS_DAT"].str.replace(r"\s+", "", regex=True)
-            dt = pd.to_datetime(s, errors="coerce", dayfirst=False)
+            dt = pd.to_datetime(s, errors="coerce", format="%Y-%m-%d")
             df["MIS_DAT"] = dt.dt.strftime("%Y-%m-%d")
 
         for col in ["OPN_DAT", "MAT_DAT", "DISB_DAT"]:
             if col in df.columns:
                 s = df[col].str.replace(r"\s+0:00$", "", regex=True)
-                dt = pd.to_datetime(s, errors="coerce", dayfirst=False)
+                dt = pd.to_datetime(s, errors="coerce", format="%Y-%m-%d")
                 df[col] = dt.dt.strftime("%Y-%m-%d")
 
         for col in self.date_cols:
