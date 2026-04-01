@@ -17,7 +17,7 @@ class MigrationManager:
         self.db.connect()
         try:
             for cfg in self.table_configs:
-                print(f"\n=== Processing CSV: {cfg['csv_path']} → Table: {cfg['table_name']} ===")
+                print(f"\n=== Processing CSV: {cfg['csv_path']} -> Table: {cfg['table_name']} ===")
                 loader = CSVLoader(cfg["columns"])
                 df = loader.load_csv(cfg["csv_path"])
                 print(f"Loaded {df.shape[0]} rows, {df.shape[1]} columns")
@@ -29,6 +29,7 @@ class MigrationManager:
                     cfg["dec_10_2"],
                     text_cols=cfg.get("text_cols", [])
                 )
+                df = cleaner.normalize_all_strings(df)
                 df = cleaner.normalize_dates(df)
                 df = cleaner.fill_blank_numerics(df)
                 df = cleaner.enforce_text_columns(df)

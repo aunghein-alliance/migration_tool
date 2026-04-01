@@ -1,6 +1,6 @@
 # User configuration
 
-SERVER = r"DESKTOP-PGA3RL7\SQLEXPRESS"
+SERVER = r"DESKTOP-KAUPSQ3\SQLEXPRESS"
 DATABASE = "analytical_alliance"
 SCHEMA = "dbo"
 
@@ -17,7 +17,7 @@ COMMON_DELIMITERS = [",", "\t", ";", "|"]
 # Table / CSV configurations
 TABLE_CONFIG = [
     {
-        "csv_path": r"C:\Users\IT\Downloads\MIS_SV_DEC_csv.csv",
+        "csv_path": r"C:\Users\Lenovo\Downloads\SavingMIS202601_csv.csv",
         "table_name": "MIS_SVACC",
         "columns": [
             "MIS_DAT", "GRP_NM", "ACC", "CO_ID", "CO_NM",
