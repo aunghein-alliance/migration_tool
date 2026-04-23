@@ -17,8 +17,8 @@ COMMON_DELIMITERS = [",", "\t", ";", "|"]
 # Table / CSV configurations
 TABLE_CONFIG = [
     {
-        "csv_path": r"C:\Users\Lenovo\Downloads\SavingMIS202601_csv.csv",
-        "table_name": "MIS_SVACC",
+        "csv_path": r"D:\oldpc\support\finance\on site March-2026 v2\ln_csv.csv",
+        "table_name": "MIS_LNACC",
         "columns": [
             "MIS_DAT", "GRP_NM", "ACC", "CO_ID", "CO_NM",
             "PRD_COD", "PRD_NM", "PRD_CAT",
@@ -50,5 +50,4 @@ TABLE_CONFIG = [
         "dec_10_2": ["IR", "POVT_SCORE"],
         "text_cols": ["ACC"]
     }
-    # Add more table/csv configs here
 ]

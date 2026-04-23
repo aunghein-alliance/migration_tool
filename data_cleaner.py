@@ -108,21 +108,17 @@ class DataCleaner:
         return df
 
     def convert_column_types(self, df):
-        """
-        Force correct Python types for numeric and date columns to avoid SQLBindParameter errors.
-        Must be called after filling blanks and normalizing dates.
-        """
-        # INT
+        # INT → native Python int (not np.int64)
         for col in self.int_cols:
             if col in df.columns:
-                df[col] = self._parse_numeric_series(df[col]).fillna(0).round().astype(int)
+                df[col] = self._parse_numeric_series(df[col]).fillna(0).round().astype(int).astype(object).map(int)
 
-        # DECIMAL
+        # DECIMAL → native Python float
         for col in self.dec_18_2 + self.dec_10_2:
             if col in df.columns:
-                df[col] = self._parse_numeric_series(df[col]).fillna(0.0).astype(float)
+                df[col] = self._parse_numeric_series(df[col]).fillna(0.0).astype(float).astype(object).map(float)
 
-        # DATE columns - convert to datetime.date objects
+        # DATE → datetime.date (already correct)
         for col in self.date_cols:
             if col in df.columns:
                 df[col] = pd.to_datetime(df[col], errors='coerce').dt.date
